@@ -10,16 +10,16 @@ class LoginPage:
         self.driver.get(self.URL)
 
     def login(self, username, password):
-        time.sleep(5)
+        time.sleep(2)
         self.driver.find_element(By.ID, "username").send_keys(username)
         self.driver.find_element(By.ID, "password").send_keys(password)
         self.driver.find_element(By.CSS_SELECTOR, "button.radius").click()
 
     def logout(self):
-        time.sleep(5)
+        time.sleep(2)
         self.driver.find_element(By.CSS_SELECTOR, "a.button.secondary.radius").click()
 
     def get_flash_message(self):
-        time.sleep(5)
+        time.sleep(2)
         return self.driver.find_element(By.ID, "flash").text
 
