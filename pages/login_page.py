@@ -16,7 +16,7 @@ class LoginPage:
         self.driver.find_element(By.CSS_SELECTOR, "button.radius").click()
 
     def logout(self):
-
+        time.sleep(30)
         self.driver.find_element(By.XPATH, "//a[@href='/logout']").click()
         time.sleep(30)
 
