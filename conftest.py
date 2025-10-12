@@ -23,6 +23,7 @@ def driver(request):
     if browser == "chrome":
         options = ChromeOptions()
         options.set_capability("browserName", "chrome")
+        options.add_argument("--incognito")
     elif browser == "firefox":
         options = FirefoxOptions()
         options.set_capability("browserName", "firefox")
