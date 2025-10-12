@@ -32,8 +32,8 @@ def test_logout(driver):
         print(f"Attempt {i+1}: {curr_message}")
         if "logged out" in curr_message.lower():
             break
-        final_message = page.get_flash_message()
-        print(f"Final message: {final_message}")
-        assert "You logged out of the secure area!" in final_message
+    final_message = page.get_flash_message()
+    print(f"Final message: {final_message}")
+    assert "You logged out of the secure area!" in final_message
     #time.sleep(2)
     #assert "You logged out of the secure area!" in page.get_flash_message()
