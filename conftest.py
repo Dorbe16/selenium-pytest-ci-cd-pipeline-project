@@ -8,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 #modificare
+#modif2
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Browser: chrome or firefox")
     parser.addoption("--grid", action="store", default="http://localhost:4444/wd/hub", help="Selenium Grid URL")
