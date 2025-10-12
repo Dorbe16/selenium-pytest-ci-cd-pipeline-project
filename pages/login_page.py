@@ -17,7 +17,7 @@ class LoginPage:
 
     def logout(self):
 
-        self.driver.find_element(By.CSS_SELECTOR, "a.button.secondary.radius").click()
+        self.driver.find_element(By.XPATH, "//a[@href='/logout']").click()
 
     def get_flash_message(self):
 
