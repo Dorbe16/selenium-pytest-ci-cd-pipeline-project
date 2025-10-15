@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-#modif
+#modif2
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default=os.getenv("BROWSER","chrome"), help="Browser: chrome or firefox, if empty run chrome")
     parser.addoption("--grid", action="store", default=os.getenv("GRID_URL",""), help="Selenium Grid URL (example: http://localhost:4444/wd/hub), if empty run locally")
