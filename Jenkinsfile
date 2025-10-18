@@ -72,7 +72,7 @@ pipeline {
             bat """
               IF /I "%RUN_ON_GRID%"=="true" docker compose -f infra/docker-compose-grid.yml up -d
               echo Waiting for Selenium Grid to be ready...
-              timeout /t 15 /nobreak
+              ping 127.0.0.1 -n 16 > nul
               """
           }
         }
