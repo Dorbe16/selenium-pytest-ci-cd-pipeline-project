@@ -45,7 +45,7 @@ pipeline {
               REM ex: python -m venv venv
               REM call venv\\Scripts\\activate
               REM pip install -r requirements.txt
-              """
+
               python -m venv C:\ProgramData\Jenkins\.jenkins\workspace\qa-automation\.venv
               call .venv/Scripts/activate
               python -m pip install --upgrade pip
@@ -56,8 +56,7 @@ pipeline {
               mkdir reports
               mkdir reports\junit
               mkdir reports\allure
-
-              pytest -q -n 2 --browser=%BROWSER% --grid=%GRID_URL% --junitxml=reports\junit\results.xml
+              """
           }
         }
       }
@@ -71,10 +70,11 @@ pipeline {
               # ex: docker compose -f docker-compose.yml up -d
             '''
           } else {
-            bat
+            bat """
               IF /I "%RUN_ON_GRID%"=="true" docker compose -f infra/docker-compose-grid.yml up -d
               echo Waiting for Selenium Grid to be ready...
               timeout /t 15 /nobreak
+              """
           }
         }
       }
@@ -88,8 +88,9 @@ pipeline {
               # ex: pytest --some-options
             '''
           } else {
-            bat
+            bat """
               pytest -q -n 2 --browser=%BROWSER% --grid=%GRID_URL% --junitxml=reports\junit\results.xml
+              """
           }
         }
       }
@@ -103,8 +104,9 @@ pipeline {
               # ex: docker compose -f docker-compose.yml down
             '''
           } else {
-            bat
+            bat """
               IF /I "%RUN_ON_GRID%"=="true" docker compose -f infra/docker-compose-grid.yml down
+              """
           }
         }
       }
