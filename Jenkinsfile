@@ -52,9 +52,9 @@ pipeline {
 
 
 
-              mkdir reports
-              mkdir reports/junit
-              mkdir reports/allure
+              if not exist reports mkdir reports
+              if not exist reports\\junit mkdir reports\\junit
+              if not exist reports\\allure mkdir reports\\allure
               """
           }
         }
