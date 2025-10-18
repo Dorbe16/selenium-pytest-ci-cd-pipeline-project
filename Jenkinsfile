@@ -40,8 +40,7 @@ pipeline {
               # pip install -r requirements.txt
             '''
           } else {
-            bat
-                """
+            bat """
               REM ex: python -m venv venv
               REM call venv/Scripts/activate
               REM pip install -r requirements.txt
