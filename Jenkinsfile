@@ -48,7 +48,9 @@ pipeline {
               REM ex: python -m venv venv
               REM call venv/Scripts/activate
               REM pip install -r requirements.txt
-
+              if exist "C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv" (
+                rmdir /s /q "C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv"
+              )
               python -m venv C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv
               call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate.bat
               python -m pip install --upgrade pip
