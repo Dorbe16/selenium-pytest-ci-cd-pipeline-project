@@ -72,7 +72,7 @@ pipeline {
             bat """
               IF /I "%RUN_ON_GRID%"=="true" docker compose -f infra/docker-compose-grid.yml up -d
               echo Waiting for Selenium Grid to be ready...
-              ping 127.0.0.1 -n 16 > nul
+              ping 127.0.0.1 -n 16 > null
               """
           }
         }
@@ -88,6 +88,7 @@ pipeline {
             '''
           } else {
             bat """
+              call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate.bat
               pytest -q -n 2 --browser=%BROWSER% --grid=%GRID_URL% --junitxml=reports/junit/results.xml
               """
           }
