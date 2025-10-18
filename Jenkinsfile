@@ -53,8 +53,8 @@ pipeline {
               )
               python -m venv C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv
               call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate.bat
-              python -m pip install --upgrade pip
-              pip install -r requirements.txt
+              C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/python.exe -m pip install --upgrade pip
+              C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/pip.exe install -r requirements.txt
 
 
 
