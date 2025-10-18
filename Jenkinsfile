@@ -43,10 +43,10 @@ pipeline {
             bat
                 """
               REM ex: python -m venv venv
-              REM call venv\\Scripts\\activate
+              REM call venv/Scripts/activate
               REM pip install -r requirements.txt
 
-              python -m venv C:\ProgramData\Jenkins\.jenkins\workspace\qa-automation\.venv
+              python -m venv C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv
               call .venv/Scripts/activate
               python -m pip install --upgrade pip
               pip install -r requirements.txt
@@ -54,8 +54,8 @@ pipeline {
 
 
               mkdir reports
-              mkdir reports\junit
-              mkdir reports\allure
+              mkdir reports/junit
+              mkdir reports/allure
               """
           }
         }
@@ -89,7 +89,7 @@ pipeline {
             '''
           } else {
             bat """
-              pytest -q -n 2 --browser=%BROWSER% --grid=%GRID_URL% --junitxml=reports\junit\results.xml
+              pytest -q -n 2 --browser=%BROWSER% --grid=%GRID_URL% --junitxml=reports/junit/results.xml
               """
           }
         }
@@ -116,7 +116,7 @@ pipeline {
 
   post {
     always {
-      archiveArtifacts artifacts: 'reports\**, allure-report\**, reports\junit\results.xml', allowEmptyArchive: true
+      archiveArtifacts artifacts: 'reports/**, allure-report/**, reports/junit/results.xml', allowEmptyArchive: true
     }
     success {
       echo 'Build success!'
