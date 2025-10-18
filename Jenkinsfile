@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  triggers {
+    githubPush()  // Trigger automat la GitHub push
+  }
+  
   parameters {
     choice(name: 'BROWSER', choices: ['chrome','firefox'], description: 'Browser')
     booleanParam(name: 'RUN_ON_GRID', defaultValue: 'true', description: 'Start & use Selenium Grid (Docker)')
