@@ -46,7 +46,7 @@ pipeline {
               REM pip install -r requirements.txt
 
               python -m venv C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv
-              call .venv/Scripts/activate
+              call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate
               python -m pip install --upgrade pip
               pip install -r requirements.txt
 
@@ -119,12 +119,12 @@ pipeline {
     }
     success {
       echo 'Build success!'
-      junit testResults: "${env.JUNIT_XML}"
+      junit testResults: "${env.JUNIT_XML}", allowEmptyResults: true
       allure results: [[path: "${env.ALLURE_DIR}"]]
     }
     failure {
       echo 'Build failed!'
-      junit testResults: "${env.JUNIT_XML}"
+      junit testResults: "${env.JUNIT_XML}", allowEmptyResults: true
       allure results: [[path: "${env.ALLURE_DIR}"]]
     }
   }
