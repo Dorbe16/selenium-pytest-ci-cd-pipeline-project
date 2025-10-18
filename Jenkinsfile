@@ -46,7 +46,7 @@ pipeline {
               REM pip install -r requirements.txt
 
               python -m venv C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv
-              call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate
+              call C:/ProgramData/Jenkins/.jenkins/workspace/qa-automation/.venv/Scripts/activate.bat
               python -m pip install --upgrade pip
               pip install -r requirements.txt
 
